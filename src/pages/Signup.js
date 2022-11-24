@@ -15,12 +15,27 @@ const Signup = () => {
         const user = userCredential.user;
         console.log(user);
         
-      updateUser(name)
+      updateUser(name);
+      saveUserrole(name,email,optionRole);
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
+    }
+    const saveUserrole = (name, email,optionRole) =>{
+        const user ={name, email,optionRole};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+        })
     }
     return (
         <div className='h-[500px] flex justify-center items-center border-2'>
@@ -50,8 +65,8 @@ const Signup = () => {
     <span className="label-text">Select A Option</span>
   </label>
   <select name='optionrole' className='select select-bordered w-full'>
-    <option defaultValue='buyer'>Buyer</option>
-    <option value='seller'>Seller</option>
+    <option defaultValue='user'>buyer</option>
+    <option value='seller'>seller</option>
   </select>
 </div>
       <input className='btn btn-accent w-full max-w-xs mt-4' value='Submit' type="submit" />
