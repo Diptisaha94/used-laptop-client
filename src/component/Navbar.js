@@ -48,7 +48,7 @@ return (
         </ul>
         <ul className='ml-4'>
           {
-            user?.email&&<Link>Dashboard</Link>
+            user?.email&&<Link to='/dashboard'>Dashboard</Link>
           }
         </ul>
         <ul className='ml-4'>
