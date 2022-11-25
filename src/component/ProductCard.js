@@ -15,8 +15,8 @@ const ProductCard = ({product}) => {
         <p>Purchase Year {purchaseyear}</p>
     </div>
     <p>{description}</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+    <div className="card-actions justify-start">
+    <label htmlFor="my-modal-3" className="btn btn-primary">Book Now</label>
     </div>
   </div>
 </div>
