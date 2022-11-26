@@ -1,10 +1,11 @@
 import React from 'react';
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product,setBookProduct}) => {
     console.log(product);
     const{name,picture,post,orginalprice,resaleprice,seller,description,location,mobilenumber,purchaseyear,use}=product;
     return (
-        <div className="card card-compact w-3/4 mx-auto bg-base-100 shadow-xl mb-8">
+        <div className="">
+          <div className="card card-compact w-3/4 mx-auto bg-base-100 shadow-xl mb-8">
   <figure><img src={picture} alt=""/></figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
@@ -16,10 +17,11 @@ const ProductCard = ({product}) => {
     </div>
     <p>{description}</p>
     <div className="card-actions justify-start">
-    <label htmlFor="my-modal-3" className="btn btn-primary">Book Now</label>
+    <label onClick={()=>setBookProduct(product)} htmlFor="my-modal-3" className="btn btn-primary">Book Now</label>
     </div>
   </div>
 </div>
+        </div>
     );
 };
 
