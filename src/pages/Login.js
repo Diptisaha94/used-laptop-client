@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthProvider';
 const Login = () => {
     const {signInEmailPassword,createGoogleUser}=useContext(AuthContext);
     const handleToLogin=(event)=>{
+      event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
         signInEmailPassword(email,password)
