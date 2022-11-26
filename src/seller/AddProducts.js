@@ -120,7 +120,7 @@ const AddProducts = () => {
   <label className="label">
     <span className="label-text">Seller Name</span>
   </label>
-  <input type="text" name='seller' className="input input-bordered w-full max-w-xs" required/>
+  <input type="text" name='seller' className="input input-bordered w-full max-w-xs" defaultValue={user?.displayName} disabled/>
 </div>
 <div className="form-control w-full max-w-xs">
   <label className="label">

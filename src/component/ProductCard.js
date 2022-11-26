@@ -15,6 +15,7 @@ const ProductCard = ({product,setBookProduct}) => {
         <p>use: {use}</p>
         <p>Purchase Year {purchaseyear}</p>
     </div>
+    <p>{seller}</p>
     <p>{description}</p>
     <div className="card-actions justify-start">
     <label onClick={()=>setBookProduct(product)} htmlFor="my-modal-3" className="btn btn-primary">Book Now</label>

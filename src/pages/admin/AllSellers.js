@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaCheck } from "react-icons/fa";
 const AllBuyers = () => {
+    const [verify,setVerify]=useState('');
     const {data: allsellers = [], refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() =>{
@@ -28,11 +29,13 @@ const AllBuyers = () => {
   .then((response) => response.json())
   .then((data) => {
     console.log('Success:', data);
+    refetch();
   })
   .catch((error) => {
     console.error('Error:', error);
   });
     }
+    console.log(verify);
     return (
         <div className="overflow-x-auto">
   <table className="table table-zebra w-full">
@@ -53,7 +56,10 @@ const AllBuyers = () => {
         <td>{seller.email}</td>
         <td><button onClick={()=>handlesellerDelete(seller._id)} className='btn btn-error btn-sm'>Delete</button></td>
         <td>
-            <button onClick={()=>handleVerify(seller._id)} defaultValue='Verify' className='btn btn-access btn-sm'><FaCheck>Verify</FaCheck></button><FaCheck>Verify</FaCheck>   
+            {
+                !seller.status?
+                    <button onClick={()=>handleVerify(seller._id)} className='btn btn-access btn-sm'>Verify</button>:<span><FaCheck className='inline text-blue-700'></FaCheck> Verify</span>
+            }   
         </td>  
             </tr>)
         }
