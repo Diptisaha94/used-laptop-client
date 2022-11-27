@@ -1,9 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaCheck } from "react-icons/fa";
 const AllBuyers = () => {
-    const [verify,setVerify]=useState('');
     const {data: allsellers = [], refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() =>{
@@ -34,8 +32,8 @@ const AllBuyers = () => {
   .catch((error) => {
     console.error('Error:', error);
   });
-    }
-    console.log(verify);
+  //product update
+}
     return (
         <div className="overflow-x-auto">
   <table className="table table-zebra w-full">

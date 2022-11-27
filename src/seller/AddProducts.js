@@ -34,7 +34,7 @@ const AddProducts = () => {
         purchaseyear:purchaseyear,
         description:description,
         email:user?.email,
-        status:'Available'
+        productstatus:'Available'
       }
       fetch('http://localhost:5000/products', {
             method: 'POST',

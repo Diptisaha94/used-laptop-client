@@ -44,7 +44,10 @@ return (
       </div>
       <div className="">
         <ul>
-          <li><Link>Home</Link></li>
+          <li><Link to='/home'>Home</Link></li>
+        </ul>
+        <ul>
+          <li className='ml-5'><Link to='/blogs'>Blogs</Link></li>
         </ul>
         <ul className='ml-4'>
           {

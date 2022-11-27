@@ -1,29 +1,27 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
+import toast from 'react-hot-toast';
 
-const BookingModal = ({bookProduct,setBookProduct}) => {
+const BookingModal = ({bookProduct}) => {
     const {user}=useContext(AuthContext);
-    const [book,setBook]=useState();
     const handleBookedProduct = event => {
       event.preventDefault();
-      //const form = event.target;
       const name = event.target.name.value;
       const email = event.target.email.value;
       const mobile = event.target.mobile.value;
       const location=event.target.location.value;
+      event.target.reset();
       const booked = {
         itemName:bookProduct?.name,
           location:location,
           name:name,
+          picture:bookProduct.picture,
           email:email,
           mobile:mobile,
           price:bookProduct?.price
       }
       console.log(booked);
 
-      // TODO: send data to the server
-      // and once data is saved then close the modal 
-      // and display success toast
       fetch('http://localhost:5000/bookedProduct', {
           method: 'POST',
           headers: {
@@ -35,12 +33,10 @@ const BookingModal = ({bookProduct,setBookProduct}) => {
           .then(data => {
               console.log(data);
               if (data.acknowledged) {
-                  setBook(null);
-                  //toast.success('Booking confirmed');
-                  //refetch();
+                  toast.success('Booking confirmed');
               }
               else{
-                  //toast.error(data.message);
+                  toast.error(data.message);
               }
           })
 

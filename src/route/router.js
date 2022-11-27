@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../component/Blog";
 import ErrorPage from "../component/ErrorPage";
 import Home from "../component/Home";
 import Loading from "../component/Loading";
@@ -11,6 +12,7 @@ import AllSellers from "../pages/admin/AllSellers";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import AddProducts from "../seller/AddProducts";
+import MyProducts from "../seller/MyProducts";
 
 export const router = createBrowserRouter([
     {
@@ -23,12 +25,20 @@ export const router = createBrowserRouter([
             element:<Home></Home>
         },
         {
+            path:'/home',
+            element:<Home></Home>
+        },
+        {
             path:'/login',
             element:<Login></Login>
         },
         {
             path:'/signup',
             element:<Signup></Signup>
+        },
+        {
+            path:'/blogs',
+            element:<Blog></Blog>
         },
         {
             path:'/loading',
@@ -50,6 +60,7 @@ export const router = createBrowserRouter([
                 {
                     path:'/dashboard/myorders',
                     element:<MyOrders></MyOrders>
+                    //loader:({params}) => fetch(`http://localhost:5000/category/${params.email}`)
                 },
                 {
                     path:'/dashboard/allbuyers',
@@ -58,7 +69,12 @@ export const router = createBrowserRouter([
                 {
                     path:'/dashboard/allsellers',
                     element:<AllSellers></AllSellers>
-                } 
+                },
+                {
+                    path:'/dashboard/myproducts/:email',
+                    element:<MyProducts></MyProducts>,
+                    loader:({params}) => fetch(`http://localhost:5000/myproducts/${params.email}`)
+                }  
             ]
         },
        ] 
