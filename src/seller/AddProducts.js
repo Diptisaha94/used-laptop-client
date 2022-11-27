@@ -99,7 +99,7 @@ const AddProducts = () => {
     <span className="label-text">Select category.</span>
   </label>
 <select name='catagory' className='select select-bordered w-full max-w-xs' required>
-    <option value="02">sumsung</option>
+    <option defaultValue="02">sumsung</option>
     <option value="01">apple</option>
     <option value="03">Dell</option>
 </select>

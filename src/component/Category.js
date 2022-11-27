@@ -9,11 +9,14 @@ const Category = () => {
   .then(data => setCategories(data))
     },[])
     return (
-        <div>
+       <div className="">
+        <h3 className='text-2xl'>Category</h3>
+        <div className=''>
            {
-            categories.map(category=><Link to={`/category/${category.category_id}`} key={category._id}>{category.category_name}<br/></Link>)
+            categories.map(category=><Link className='grid grid-cols-1 divide-y ' to={`/category/${category.category_id}`} key={category._id}>{category.category_name}<br/></Link>)
            } 
         </div>
+       </div>
     );
 };
 
