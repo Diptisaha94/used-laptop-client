@@ -4,6 +4,12 @@ import AllProducts from './AllProducts';
 import Category from './Category';
 
 const Home = () => {
+    const handleSubscribe=(e)=>{
+        e.preventDefault();
+    const email=e.target.email.value;
+    e.target.reset();
+    console.log(email)
+    }
     return (
         <div className=''>
            <Banner></Banner>
@@ -20,8 +26,10 @@ const Home = () => {
                 <div className="bg-sky-400 mt-12 py-14">
                     <p className='text-2xl font-bold uppercase text-center mb-5'>you want to know our latest products<br></br> news please subscribe our newsletters</p>
                 <div className="w-2/4 mx-auto text-center">
-                <input type="email" placeholder="Email" className="input input-bordered w-full max-w-xs text-center" />
+                <form onSubmit={handleSubscribe}>
+                <input type="email" name="email" placeholder="Email" className="input input-bordered w-full max-w-xs text-center" />
                 <button className="btn btn-secondary mx-auto">Submit</button>
+                </form>
                 </div>
                     </div> 
         </div>
