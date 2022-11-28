@@ -16,7 +16,14 @@ const Home = () => {
                 <div className="">
                     <AllProducts></AllProducts>
                 </div>
-                </div> 
+                </div>
+                <div className="bg-sky-400 mt-12 py-14">
+                    <p className='text-2xl font-bold uppercase text-center mb-5'>you want to know our latest products<br></br> news please subscribe our newsletters</p>
+                <div className="w-2/4 mx-auto text-center">
+                <input type="email" placeholder="Email" className="input input-bordered w-full max-w-xs text-center" />
+                <button className="btn btn-secondary mx-auto">Submit</button>
+                </div>
+                    </div> 
         </div>
     );
 };

@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 
 const Login = () => {
     const {signInEmailPassword,createGoogleUser}=useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
     const handleToLogin=(event)=>{
       event.preventDefault();
         const email = event.target.email.value;
@@ -11,6 +14,7 @@ const Login = () => {
         signInEmailPassword(email,password)
         .then((userCredential) => { 
             const user = userCredential.user;
+            navigate(from, { replace: true });
             console.log(user);
           })
           .catch((error) => {
@@ -25,6 +29,7 @@ const Login = () => {
             console.log(user);
             const optionRole="buyer";
             saveUserGoogle(user.displayName,user.email,optionRole);
+            navigate(from, { replace: true });
           }).catch((error) => {
             const errorMessage = error.message;
             console.log(errorMessage);

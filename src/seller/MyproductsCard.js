@@ -1,7 +1,19 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const MyproductsCard = ({myproduct}) => {
-    const{name,picture,productstatus,post,orginalprice,resaleprice,seller,description,location,mobilenumber,purchaseyear,use}=myproduct;
+    const{name,picture,productstatus,post,orginalprice,resaleprice,seller,description,location,mobilenumber,purchaseyear,use,_id}=myproduct;
+    const handleProdutsDelete=(id)=>{
+      fetch(`http://localhost:5000/products/${id}`, {
+            method: 'DELETE', 
+        })
+        .then(res => res.json())
+        .then(data => {
+                toast.success('products delete successful.')
+                
+        })
+        .catch(e=>console.log(e))
+    }
     return (
         <div className="">
             <p className='text-2xl font-bold mb-6'>My Produts</p>
@@ -17,7 +29,7 @@ const MyproductsCard = ({myproduct}) => {
     </div>
     <p>{description}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Book Now</button>
+      <button onClick={()=>handleProdutsDelete(_id)} className="btn btn-error">Delete</button>
     </div>
   </div>
 </div>

@@ -24,8 +24,8 @@ const AllBuyers = () => {
                 refetch();
         })
     }
-    const handleVerify=(id)=>{
-        fetch(`http://localhost:5000/users/seller/${id}`, {
+    const handleVerify=(email)=>{
+        fetch(`http://localhost:5000/users/seller/${email}`, {
   method: 'PUT'
 })
   .then((response) => response.json())
@@ -37,6 +37,17 @@ const AllBuyers = () => {
     console.error('Error:', error);
   });
   //product update
+  fetch(`http://localhost:5000/myproducts/${email}`, {
+  method: 'PUT'
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Success:', data);
+    refetch();
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 }
     return (
         <div className="overflow-x-auto">
@@ -60,7 +71,7 @@ const AllBuyers = () => {
         <td>
             {
                 !seller.status?
-                    <button onClick={()=>handleVerify(seller._id)} className='btn btn-access btn-sm'>Verify</button>:<span><FaCheck className='inline text-blue-700'></FaCheck> Verify</span>
+                    <button onClick={()=>handleVerify(seller.email)} className='btn btn-access btn-sm'>UnVerify</button>:<span><FaCheck className='inline text-blue-700'></FaCheck> Verify</span>
             }   
         </td>  
             </tr>)

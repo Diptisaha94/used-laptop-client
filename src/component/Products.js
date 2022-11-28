@@ -20,7 +20,9 @@ const Products = () => {
   }
     return (
         <div className="">
-            <div>
+            <p className='text-2xl font-bold text-center mt-8'>Our Feature Products</p>
+          <hr className='w-40 mx-auto mb-10 border-2'></hr>
+            <div className='md:grid grid-cols-2 gap-4'>
             {
                 productsCatagoryData.map(product=><ProductCard verify={verify} key={product._id} product={product} setBookProduct={setBookProduct}></ProductCard>)
             }

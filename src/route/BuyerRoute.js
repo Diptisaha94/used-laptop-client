@@ -5,21 +5,20 @@ import { AuthContext } from '../context/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
 
 
-
-const AdminRoute = ({ children }) => {
+const BuyerRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
-    const [isAdmin, isAdminLoading] = useAdmin(user?.email);
+    const [isBuyer, isBuyerLoading] = useAdmin(user?.email);
     const location = useLocation();
 
-    if (loading || isAdminLoading) {
+    if (loading || isBuyerLoading) {
         return <Loading></Loading>
     }
 
-    if (user && isAdmin) {
+    if (user && isBuyer) {
         return children;
     }
 
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
-export default AdminRoute;
+export default BuyerRoute;

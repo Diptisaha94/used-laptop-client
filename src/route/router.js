@@ -13,6 +13,8 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import AddProducts from "../seller/AddProducts";
 import MyProducts from "../seller/MyProducts";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -46,8 +48,8 @@ export const router = createBrowserRouter([
         },
         {
             path:'/category/:id',
-            element:<Products></Products>,
-            loader:({params}) => fetch(`https://laptop-server.vercel.app/category/${params.id}`)
+            element:<PrivateRoute><Products></Products></PrivateRoute>,
+            loader:({params}) => fetch(`http://localhost:5000/category/${params.id}`)
         },
         {
             path:'/dashboard',
@@ -64,11 +66,11 @@ export const router = createBrowserRouter([
                 },
                 {
                     path:'/dashboard/allbuyers',
-                    element:<AllBuyers></AllBuyers>
+                    element:<AdminRoute><AllBuyers></AllBuyers></AdminRoute>
                 },
                 {
                     path:'/dashboard/allsellers',
-                    element:<AllSellers></AllSellers>
+                    element:<AdminRoute><AllSellers></AllSellers></AdminRoute>
                 },
                 {
                     path:'/dashboard/myproducts/:email',

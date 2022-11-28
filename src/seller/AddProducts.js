@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
+import toast from 'react-hot-toast';
 
 const AddProducts = () => {
   const {user}=useContext(AuthContext);
@@ -19,6 +20,7 @@ const AddProducts = () => {
         const purchaseyear =e.target.purchaseyear.value;
         const description =e.target.description.value;
         console.log(name);
+        e.target.reset();
       const productData={
         name:name,
         picture:picture,
@@ -46,6 +48,7 @@ const AddProducts = () => {
         .then(res => res.json())
         .then(data =>{
             console.log(data);
+            toast.success('products add successful.')
         })
     }
     return (
@@ -99,7 +102,7 @@ const AddProducts = () => {
     <span className="label-text">Select category.</span>
   </label>
 <select name='catagory' className='select select-bordered w-full max-w-xs' required>
-    <option defaultValue="02">sumsung</option>
+    <option value="02">sumsung</option>
     <option value="01">apple</option>
     <option value="03">Dell</option>
 </select>

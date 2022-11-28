@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 
 const Signup = () => {
     const {createUserEmailPassword,updateUser}=useContext(AuthContext);
+    const navigate=useNavigate();
     const handleToSignup=(event)=>{
         event.preventDefault();
         const name = event.target.name.value;
@@ -10,6 +12,7 @@ const Signup = () => {
         const password = event.target.password.value;
         const optionRole = event.target.optionrole.value;
         console.log(name,email,password,optionRole);
+        event.target.reset();
         createUserEmailPassword(email,password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -17,6 +20,7 @@ const Signup = () => {
         
       updateUser(name);
       saveUserrole(name,email,optionRole);
+      navigate('/');
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -65,7 +69,7 @@ const Signup = () => {
     <span className="label-text">Select A Option</span>
   </label>
   <select name='optionrole' className='select select-bordered w-full'>
-    <option defaultValue='user'>buyer</option>
+    <option defaultValue='buyer'>buyer</option>
     <option value='seller'>seller</option>
   </select>
 </div>
