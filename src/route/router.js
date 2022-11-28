@@ -15,6 +15,7 @@ import AddProducts from "../seller/AddProducts";
 import MyProducts from "../seller/MyProducts";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import SellerRoute from "./SellerRoute";
 
 export const router = createBrowserRouter([
     {
@@ -49,7 +50,7 @@ export const router = createBrowserRouter([
         {
             path:'/category/:id',
             element:<PrivateRoute><Products></Products></PrivateRoute>,
-            loader:({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+            loader:({params}) => fetch(`https://laptop-server.vercel.app/category/${params.id}`)
         },
         {
             path:'/dashboard',
@@ -57,12 +58,12 @@ export const router = createBrowserRouter([
             children:[
                 {
                     path:'/dashboard/addaproduct',
-                    element:<AddProducts></AddProducts>
+                    element:<SellerRoute><AddProducts></AddProducts></SellerRoute>
                 },
                 {
                     path:'/dashboard/myorders',
                     element:<MyOrders></MyOrders>
-                    //loader:({params}) => fetch(`http://localhost:5000/category/${params.email}`)
+                    //loader:({params}) => fetch(`https://laptop-server.vercel.app/category/${params.email}`)
                 },
                 {
                     path:'/dashboard/allbuyers',
@@ -74,8 +75,8 @@ export const router = createBrowserRouter([
                 },
                 {
                     path:'/dashboard/myproducts/:email',
-                    element:<MyProducts></MyProducts>,
-                    loader:({params}) => fetch(`http://localhost:5000/myproducts/${params.email}`)
+                    element:<SellerRoute><MyProducts></MyProducts></SellerRoute>,
+                    loader:({params}) => fetch(`https://laptop-server.vercel.app/myproducts/${params.email}`)
                 }  
             ]
         },

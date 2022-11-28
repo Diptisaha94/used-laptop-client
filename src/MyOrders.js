@@ -13,7 +13,7 @@ const MyOrders = (email) => {
     const { data: orders = [], refetch, isLoading } = useQuery({
         queryKey: ['myorders', email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myorders/${user?.email}`);
+            const res = await fetch(`https://laptop-server.vercel.app/myorders/${user?.email}`);
             const data = await res.json();
             return data
         }
@@ -22,7 +22,7 @@ const MyOrders = (email) => {
       <Loading></Loading>
     }
     const handleProductDelete=(id)=>{
-        fetch(`http://localhost:5000/myorders/${id}`, {
+        fetch(`https://laptop-server.vercel.app/myorders/${id}`, {
             method: 'DELETE', 
         })
         .then(res => res.json())

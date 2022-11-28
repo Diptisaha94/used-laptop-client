@@ -6,7 +6,7 @@ const AllBuyers = () => {
     const {data: allsellers = [], refetch,isLoading} = useQuery({
         queryKey: ['users'],
         queryFn: async() =>{
-            const res = await fetch('http://localhost:5000/users/admin/allsellers');
+            const res = await fetch('https://laptop-server.vercel.app/users/admin/allsellers');
             const data = await res.json();
             return data;
         }
@@ -15,7 +15,7 @@ const AllBuyers = () => {
       <Loading></Loading>
     }
     const handlesellerDelete=(id)=>{
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://laptop-server.vercel.app/users/${id}`, {
             method: 'DELETE', 
         })
         .then(res => res.json())
@@ -25,7 +25,7 @@ const AllBuyers = () => {
         })
     }
     const handleVerify=(email)=>{
-        fetch(`http://localhost:5000/users/seller/${email}`, {
+        fetch(`https://laptop-server.vercel.app/users/seller/${email}`, {
   method: 'PUT'
 })
   .then((response) => response.json())
@@ -37,7 +37,7 @@ const AllBuyers = () => {
     console.error('Error:', error);
   });
   //product update
-  fetch(`http://localhost:5000/myproducts/${email}`, {
+  fetch(`https://laptop-server.vercel.app/myproducts/${email}`, {
   method: 'PUT'
 })
   .then((response) => response.json())

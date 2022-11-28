@@ -7,7 +7,7 @@ const AllProducts = () => {
     const {loading}=useContext(AuthContext);
     const [allproduts,setProducts]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/allproduts')
+        fetch('https://laptop-server.vercel.app/allproduts')
   .then(response => response.json())
   .then(data => setProducts(data))
     },[])

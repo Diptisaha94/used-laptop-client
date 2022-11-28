@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 const MyproductsCard = ({myproduct}) => {
     const{name,picture,productstatus,post,orginalprice,resaleprice,seller,description,location,mobilenumber,purchaseyear,use,_id}=myproduct;
     const handleProdutsDelete=(id)=>{
-      fetch(`http://localhost:5000/products/${id}`, {
+      fetch(`https://laptop-server.vercel.app/products/${id}`, {
             method: 'DELETE', 
         })
         .then(res => res.json())

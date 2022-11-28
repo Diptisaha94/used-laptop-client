@@ -11,7 +11,7 @@ const Products = () => {
     const productsCatagoryData=useLoaderData();
     const [verify,setVerify]=useState([]);
   useEffect(()=>{
-    fetch('http://localhost:5000/users/sellerverify')
+    fetch('https://laptop-server.vercel.app/users/sellerverify')
   .then(response => response.json())
   .then(json => setVerify(json))
   },[]);
