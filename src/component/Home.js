@@ -11,7 +11,7 @@ const Home = () => {
             <h3 className='text-2xl font-bold text-center'>Our Products</h3>
             <hr className='w-40 divide-slate-400 text-center mx-auto mb-12'></hr>
             </div>
-            <div className="w-3/4 mx-auto flex justify-between">
+            <div className="w-3/4 mx-auto md:flex justify-between">
                 <Category></Category>
                 <div className="">
                     <AllProducts></AllProducts>

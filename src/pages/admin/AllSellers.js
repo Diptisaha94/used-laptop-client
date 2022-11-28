@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { FaCheck } from "react-icons/fa";
+import Loading from '../../component/Loading';
 const AllBuyers = () => {
-    const {data: allsellers = [], refetch} = useQuery({
+    const {data: allsellers = [], refetch,isLoading} = useQuery({
         queryKey: ['users'],
         queryFn: async() =>{
             const res = await fetch('http://localhost:5000/users/admin/allsellers');
@@ -10,6 +11,9 @@ const AllBuyers = () => {
             return data;
         }
     });
+    if(isLoading){
+      <Loading></Loading>
+    }
     const handlesellerDelete=(id)=>{
         fetch(`http://localhost:5000/users/${id}`, {
             method: 'DELETE', 

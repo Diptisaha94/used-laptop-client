@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../context/AuthProvider';
 import AllproductsCard from './AllproductsCard';
+import Loading from './Loading';
 
 const AllProducts = () => {
+    const {loading}=useContext(AuthContext);
     const [allproduts,setProducts]=useState([]);
     useEffect(()=>{
         fetch('http://localhost:5000/allproduts')
   .then(response => response.json())
   .then(data => setProducts(data))
     },[])
+    if(loading){
+        <Loading></Loading>
+    }
     return (
         <div className='md:grid grid-cols-2 gap-6'>
             {

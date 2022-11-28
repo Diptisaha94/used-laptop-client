@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 
 const Login = () => {
@@ -62,7 +63,7 @@ const Login = () => {
 </div>
       <input className='btn btn-accent w-full max-w-xs mt-4' value='Submit' type="submit" />
     </form>
-    <h1>you have no account <span className='text-primary'>Please SignUp.</span></h1>
+    <h1>you have no account <Link to='/signup'><span className='text-primary'>Please SignUp.</span></Link></h1>
     <button onClick={handleToGoogleLogin} className='btn btn-outline w-full max-w-xs mt-4'>Google Login</button>
             </div>  
         </div>

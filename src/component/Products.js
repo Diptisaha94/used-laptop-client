@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider';
 import BookingModal from './BookingModal';
+import Loading from './Loading';
 import ProductCard from './ProductCard';
 
 const Products = () => {
+    const {loading}=useContext(AuthContext);
     const [bookProduct,setBookProduct]=useState(null);
     const productsCatagoryData=useLoaderData();
     const [verify,setVerify]=useState([]);
@@ -11,7 +14,10 @@ const Products = () => {
     fetch('http://localhost:5000/users/sellerverify')
   .then(response => response.json())
   .then(json => setVerify(json))
-  },[])
+  },[]);
+  if(loading){
+    <Loading></Loading>
+  }
     return (
         <div className="">
             <div>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from './context/AuthProvider';
 import toast from 'react-hot-toast';
+import Loading from './component/Loading';
 
 
 const MyOrders = (email) => {
@@ -17,6 +18,9 @@ const MyOrders = (email) => {
             return data
         }
     });
+    if(isLoading){
+      <Loading></Loading>
+    }
     const handleProductDelete=(id)=>{
         fetch(`http://localhost:5000/myorders/${id}`, {
             method: 'DELETE', 
