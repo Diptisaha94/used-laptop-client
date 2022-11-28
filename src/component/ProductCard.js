@@ -19,11 +19,12 @@ const ProductCard = ({product,setBookProduct}) => {
         <p>Purchase Year {purchaseyear}</p>
     </div>
      {
-      status?<span><FaCheck className='inline text-blue-700'></FaCheck>Verify <span className='text-2xl font-bold'>{seller}</span></span>:<p>{seller}</p>
+      status?<span className='text-xl font-bold'>Seller Name: <FaCheck className='inline text-blue-700'></FaCheck>Verify <span className='text-xl font-bold'>{seller}</span></span>:<p className='text-xl font-bold'>Seller Name: {seller}</p>
     } 
     {/* {
       verify.map(v=><SellerName key={v._id} v={v} seller={seller}></SellerName>)
     } */}
+    <p className='text-xl'>Mobile Number: {mobilenumber}</p>
     <p>{description}</p>
     <div className="card-actions justify-start">
     <label onClick={()=>setBookProduct(product)} htmlFor="my-modal-3" className="btn btn-primary">Book Now</label>

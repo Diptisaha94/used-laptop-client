@@ -8,9 +8,12 @@ const AllproductsCard = ({pro}) => {
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
     <div className="flex justify-between">
-    <p>Price:{resaleprice}</p>
-    <p>Location:{location}</p>
+    <p className='text-xl font-bold'>Price: {resaleprice}</p>
+    <p className='font-bold'>Location: {location}</p>
+    
     </div>
+    <p className=''>Mobile Number: {mobilenumber}</p>
+    <p className='text-xl font-bold'>{productstatus}</p>
   </div>
 </div>
     );
