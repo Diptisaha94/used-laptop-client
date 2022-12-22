@@ -2,7 +2,8 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='w-3/4 mx-auto'>
+        <div className="bg-rose-100 py-12">
+            <div className='w-3/4 mx-auto'>
             <h3 className='text-2xl font-bold'>1. What are the different ways to manage a state in a React application?</h3>
             <p>There are four main types of state properly manage in your React apps:</p>
             <li>Local state</li>
@@ -22,6 +23,7 @@ In many cases, a lot of major parts of our application rely upon accessing URL s
     <p>An unchanged leader among the most popular JavaScript frameworks, React was developed by Facebook to meet the needs of its products, and successfully presented and open-sourced to the tech audience in 2013. The elaboration of React takes roots from its early prototype created by Jordan Walke — “Fax.js”, first deployed in 2011 in Facebook’s News Feed. The current stable version is 17.x, which was launched in October 2020 and has been updated in minor steps since then.</p>
     <p className='text-xl font-bold'>Vue.js</p>
     <p>The former Google employee Evan You after years of working with Angular decided to create a lightweight framework that would contain the best features of the aforementioned. An open-source framework Vue.js was released in February 2014 and since then is gaining extreme popularity. The most recent stable version is Vue 3, which was launched in September 2020 with a new default version update as of February 2022.</p>     
+        </div>
         </div>
     );
 };

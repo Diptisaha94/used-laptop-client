@@ -4,7 +4,7 @@ import SellerName from './SellerName';
 
 const ProductCard = ({product,setBookProduct}) => {
     console.log(product);
-    const{name,picture,status,post,orginalprice,resaleprice,seller,description,location,mobilenumber,purchaseyear,use}=product;
+    const{name,picture,status,post,orginalprice,resaleprice,seller,description,location,mobilenumber,purchaseyear,use,productstatus}=product;
     return (
         <div className="">
           
@@ -12,6 +12,7 @@ const ProductCard = ({product,setBookProduct}) => {
   <figure><img src={picture} alt=""/></figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
+    <p className='text-xl font-bold'>{productstatus}</p>
     <div className="md:flex">
         <p>Orginal Price: ${orginalprice}</p>
         <p>Resale Price: ${resaleprice}</p>

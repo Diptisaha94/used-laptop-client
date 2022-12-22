@@ -4,11 +4,12 @@ import AllProducts from './AllProducts';
 import Category from './Category';
 
 const Home = () => {
+
     const handleSubscribe=(e)=>{
         e.preventDefault();
     const email=e.target.email.value;
     e.target.reset();
-    console.log(email)
+    console.log(email);
     }
     return (
         <div className=''>
